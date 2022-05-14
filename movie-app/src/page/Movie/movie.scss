@@ -1,0 +1,119 @@
+@use '../../scss/'as *;
+
+.movie-video {
+    margin-top: 200px;
+
+
+}
+
+.season-number {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    &>*~* {
+        margin-left: .5rem;
+    }
+
+    &__item {
+        border: 3px solid $white;
+        background-color: transparent;
+        color: $white;
+        box-shadow: unset;
+        border-radius: 10px;
+        line-height: 35px;
+        padding: 2px 8px;
+        //min-width: 45px;
+        text-align: center;
+        margin: 5px 5px;
+        font-weight: 500;
+
+        border-radius: 1px;
+        -webkit-transition: background .1s ease-in-out 0s;
+        -khtml-transition: background .1s ease-in-out 0s;
+        -moz-transition: background .1s ease-in-out 0s;
+        -ms-transition: background .1s ease-in-out 0s;
+        -o-transition: background .1s ease-in-out 0s;
+        transition: background .1s ease-in-out 0s;
+
+
+
+        &:hover {
+            box-shadow: unset;
+            color: $main-color;
+            background-color: $white;
+            cursor: pointer;
+            transition: 0.3 ease;
+
+        }
+    }
+
+    & .active {
+        box-shadow: unset;
+        color: $main-color;
+        background-color: $white;
+        font-weight: 600;
+        border: 1px solid #b5e745;
+    }
+}
+
+.season-espisode {
+    margin-bottom: 10px;
+    background: #0F0F0F;
+    padding: 5px;
+    overflow: hidden;
+
+    &__container {
+        background: $black;
+        padding-left: 16px;
+        padding-top: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        width: fit-content;
+
+        & ul {
+            list-style: none;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+
+            & li {
+                float: left;
+                margin: 2px;
+                border: 3px solid $white;
+                background-color: transparent;
+                color: $white;
+                box-shadow: unset;
+
+                //height: 25px;
+                line-height: 35px;
+                padding: 0 10px;
+                min-width: 45px;
+                text-align: center;
+                font-weight: 700;
+                border-radius: 4px;
+
+                transition: background .1s ease-in-out 0s;
+
+                &.active {
+                    box-shadow: unset;
+                    color: $main-color;
+                    background-color: $white;
+                }
+
+                &:hover {
+                    box-shadow: unset;
+                    color: $main-color;
+                    background-color: $white;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
