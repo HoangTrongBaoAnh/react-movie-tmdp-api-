@@ -4,6 +4,7 @@ import tmdbApi, { category } from '../../api/tmdbApi';
 import './movie.scss';
 import MovieList from '../../component/movie-list/movieList'
 import { category as cate } from '../../api/tmdbApi'
+import { useTranslation } from 'react-i18next';
 
 const Movie = () => {
     const { category, id } = useParams();
@@ -11,6 +12,9 @@ const Movie = () => {
     const [seasonNumber, setSeasonNumber] = useState(1);
     const [espisode, setEspisode] = useState(1);
     const [seasonEspisode, setseasonEspisode] = useState([]);
+
+    const {t} = useTranslation();
+
     const getdetail = async () => {
         //await tmdbApi.detail(category, id, {params:{}});
         const res = await tmdbApi.detail(category, id, { params: {} });
@@ -49,7 +53,7 @@ const Movie = () => {
                                     {item.seasons.map(item => (
 
                                         <div className={`season-number__item ${item.season_number == seasonNumber ? 'active' : ''}`} key={item.id} onClick={() => setSeasonNumber(item.season_number)}>
-                                            Season {item.season_number}
+                                            {t('season')} {item.season_number}
                                         </div>
 
                                     ))}
@@ -74,7 +78,7 @@ const Movie = () => {
 
                         <div className="section mb-3">
                             <div className="section__header mb-3">
-                                <h2>Similar</h2>
+                                <h2>{t('similar')}</h2>
                             </div>
                             <MovieList category={category} type="simillar" id={item.id} />
                         </div>

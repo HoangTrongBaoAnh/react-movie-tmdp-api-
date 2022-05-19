@@ -14,7 +14,10 @@ import MovieList from '../../component/movie-list/movieList'
 import Button from "../../component/button/button";
 
 import './detail.scss'
+import { useTranslation } from 'react-i18next';
 function Detail() {
+  const {t} = useTranslation();
+
   const { category, id } = useParams();
   const [item, setiem] = useState(null);
   useEffect(() => {
@@ -63,7 +66,7 @@ function Detail() {
                 <p className='overview'>{item.overview}</p>
                 <div className='cast'>
                   <div >
-                    <h2>Casts</h2>
+                    <h2>{t('casts')}</h2>
                     <CastList id={item.id} />
                   </div>
                 </div>
@@ -75,7 +78,7 @@ function Detail() {
               </div>
               <div className="section mb-3">
                 <div className="section__header mb-3">
-                  <h2>Similar</h2>
+                  <h2>{t('similar')}</h2>
                 </div>
                 <MovieList category={category} type="simillar" id={item.id} />
               </div>

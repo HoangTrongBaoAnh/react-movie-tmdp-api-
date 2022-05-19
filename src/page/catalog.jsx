@@ -9,7 +9,7 @@ const Catalog = () => {
   return (
     <div>
       <Pageheader>
-        {category==cate.movie ? "Movie" : "Tv"}
+        {category==cate.movie ? "movies" : "tv_series"}
       </Pageheader>
       <div className="container">
         <div className="section mb-3">

@@ -7,7 +7,10 @@ import Button, { OutlineButton } from '../button/button'
 import Input from '../input/Input'
 import './movie-grid.scss'
 import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 const Moviegrid = (props) => {
+    const {t} = useTranslation();
+
     const [items,setitems] = useState([]);
     const [page,setpage] = useState(1);
     const [totalpage,settotalpage] = useState(0)
@@ -73,7 +76,7 @@ const Moviegrid = (props) => {
     </div>
     {page < totalpage ? (
         <div className='movie-grid__loadmore'>
-            <OutlineButton className="small" onClick={loadMore}>Load More</OutlineButton>
+            <OutlineButton className="small" onClick={loadMore}>{t('load_more')}</OutlineButton>
         </div>
     ) : null}
     </>
@@ -81,8 +84,10 @@ const Moviegrid = (props) => {
 }
 
 const MovieSearch = props => {
+  const {t} = useTranslation();
+
   const naviagate = useNavigate();
-  const [keyword,setkeyword] = useState(props.keyword ? props.keyword : "0")
+  const [keyword,setkeyword] = useState(props.keyword ? props.keyword : "")
 
   const gotoSearch = useCallback(
     () => {
@@ -110,8 +115,8 @@ const MovieSearch = props => {
 
   return (
     <div className="movie-search">
-      <Input type='text' placeholder="enter keyword" value={keyword} onChange={e => setkeyword(e.target.value)}/>
-      <Button className='small' onClick={gotoSearch}>Search</Button>
+      <Input type='text' placeholder={t('enter_keyword')} value={keyword} onChange={e => setkeyword(e.target.value)}/>
+      <Button className='small' onClick={gotoSearch}>{t('search')}</Button>
     </div>
   )
 }

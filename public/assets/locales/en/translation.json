@@ -1,0 +1,33 @@
+{
+  "trending_movie": "Trending movie",
+  "language": "Language",
+  "view_more": "View more",
+  "top_rated_movie": "Top Rated Movie",
+  "top_trending_tv": "Top Trending Tvs",
+  "home": "Home",
+  "movies": "Movies",
+  "tv_series": "TV Series",
+  "watch_now": "Watch now",
+  "watch_trailer": "Watch trailer",
+
+  "search":"Search",
+  "load_more":"Load More",
+  "enter_keyword":"Enter keyword",
+  "similar": "Similar",
+  "casts": "Casts",
+  "season": "Season",
+
+  "contact_us": "Contact us",
+  "term_of_services": "Term of services",
+  "ablout_us": "Ablout us",
+  "live": "Live",
+
+  "faq": "FAQ",
+  "premium":"Premium",
+
+  "privacy_policy": "Privacy policy",
+  "you_must_watch": "You must watch",
+  "recent_release": "Recent release",
+  "top_imdb": "Top IMDB"
+
+}

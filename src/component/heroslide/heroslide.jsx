@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Button, { OutlineButton } from '../button/button';
 import Modal, { ModalContent } from '../modal/modal';
 import './heroslide.scss'
+import { useTranslation } from 'react-i18next';
 const Heroslide = () => {
     SwiperCore.use([Autoplay]);
     const [movieitems,setmovieitems] = useState([]);
@@ -81,6 +82,8 @@ const Heroslideitems = props =>{
 
     }
 
+    const {t} = useTranslation();
+
     return (
         <div
             className={`hero-slide__item ${props.className}`}
@@ -92,10 +95,10 @@ const Heroslideitems = props =>{
                     <div className="overview">{item.overview}</div>
                     <div className="btns">
                         <Button onClick={() => navigate('/movie/' + item.id)}>
-                            Watch now
+                            {t('watch_now')}
                         </Button>
                         <OutlineButton onClick={()=> setModalACtive()}>
-                            Watch trailer
+                            {t('watch_trailer')}
                         </OutlineButton>
                     </div>
                 </div>
