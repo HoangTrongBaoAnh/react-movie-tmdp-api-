@@ -31,7 +31,7 @@ const Movie = () => {
     }
     useEffect(() => {
         getdetail();
-        if (category == cate.tv) {
+        if (category === cate.tv) {
             //setSeasonNumber(item.seasons[0].season_number);
             getSeasonEspisode(id, seasonNumber);
             //console.log(seasonNumber);
@@ -47,12 +47,12 @@ const Movie = () => {
                         <Video item={item} category={category} seasonNumber={seasonNumber} espisode={espisode} />
                     </div>
                     {
-                        category == cate.tv && (
+                        category === cate.tv && (
                             <div className='mb-3 container'>
                                 <div className='season-number mb-3'>
                                     {item.seasons.map(item => (
 
-                                        <div className={`season-number__item ${item.season_number == seasonNumber ? 'active' : ''}`} key={item.id} onClick={() => setSeasonNumber(item.season_number)}>
+                                        <div className={`season-number__item ${item.season_number === seasonNumber ? 'active' : ''}`} key={item.id} onClick={() => setSeasonNumber(item.season_number)}>
                                             {t('season')} {item.season_number}
                                         </div>
 
@@ -62,7 +62,7 @@ const Movie = () => {
                                     <div className='season-espisode__container'>
                                         <ul>
                                             {seasonEspisode && seasonEspisode.map(item => (
-                                                <li className={`season-espisode__item ${item.episode_number == espisode ? 'active' : ''}`} key={item.id} onClick={() => setEspisode(item.episode_number)}>
+                                                <li className={`season-espisode__item ${item.episode_number === espisode ? 'active' : ''}`} key={item.id} onClick={() => setEspisode(item.episode_number)}>
                                                     {item.episode_number}
                                                 </li>
                                             ))
@@ -100,7 +100,7 @@ const Video = (props) => {
         console.log(`https://2embed.org/embed/${item.id}/${props.seasonNumber}/${props.espisode}`)
     }, [])
     var src = '';
-    props.category === category.tv ? src = `https://2embed.org/embed/${item.id}/${props.seasonNumber}/${props.espisode}` : src = 'https://2embed.org/embed/' + item.id;;
+    props.category === category.tv ? src = `https://www.2embed.stream/embed/tv/${item.id}/${props.seasonNumber}/${props.espisode}` : src = 'https://www.2embed.stream/embed/movie/' + item.id;;
     //const src = 'https://2embed.org/embed/TV_SHOW_IMDB_ID/SEASON/EPISODE'
     //const src = 'https://2embed.org/embed/' + item.id;;
     return (
